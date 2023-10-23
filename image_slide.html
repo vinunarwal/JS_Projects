@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="image_slide.css">
+</head>
+<body onload="slide()">
+	<h1>Image SLides</h1>
+    <div class="move">
+        <ul id="img_list">
+            <li><img src="slide1.jpg" alt="image"></li>
+            <li><img src="slide2.jpg" alt="image"></li>
+            <li><img src="slide3.jpg" alt="image"></li>
+            <li><img src="slide4.jpg" alt="image"></li>
+        </ul>    
+    </div>   
+</body>
+ <script>
+    function slide()
+    {
+	var image_list = document.getElementById('img_list');
+	var start = 0;
+	var move = function()
+				{
+				if(start%900 == 0)
+				{
+					clearInterval(interval);
+					setTimeout(function()
+						 {
+							interval = setInterval(move,0);
+						 }, 1000);
+					  }
+					  if(start == 2700)
+					  {
+							start=0;
+							image_list.setAttribute('style', 'position:relative; left:'+ 600 +'px');
+					  }
+					  image_list.setAttribute('style', 'position:relative; right:'+ start +'px');
+					  start++;
+				 }
+	var interval = setInterval(move,10);
+} 
+</script> 
+</html>

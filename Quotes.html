@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Changing Quotes</title>
+    <link rel="stylesheet" href="quotes.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div id="container">
+        <div id="box">
+         <p>Click Next Button to read Best Quotes</p>
+        </div>
+        <div id="writer">
+            Have a Good Day !
+        </div>
+        <div class="btn">
+            <a href="#" onclick="back()"><i class='bx bxs-chevrons-left bx-tada' style='color:rgba(5,5,5)' id="next"></i></a>
+		    <a href="#" onclick="next()"><i class='bx bxs-chevrons-right bx-tada' style='color:rgba(5,5,5)' id="next"></i></a>
+    </div>  
+</div> 
+</body>
+<script>
+    var quotes=Array(' "Live for each second without hesitation." ','"The unexamined life is not worth living."','"You only live once, but if you do it right, once is enough."',' "The purpose of our lives is to be happy." ',' "You never really learn much from hearing yourself speak." ',' "Life is what happens when you are busy making other plans." ')
+    var writer=Array("Elton John", "Socrates","Mae West","Dalai Lama"," George Clooney"," John Lennon")
+    var i=0;
+    function next()
+		{
+			document.getElementById("box").innerHTML=quotes[i];
+			document.getElementById("writer").innerHTML=writer[i];
+			i++;
+			if(i>=quotes.length)
+			{
+				i=0;
+			}
+		}
+        function back()
+        {
+            i--;
+			if(i<0)
+			{
+				i=quotes.length-1;
+			}
+			document.getElementById("box").innerHTML=quotes[i];
+			document.getElementById("writer").innerHTML=writer[i];				
+		}
+</script>
+</html>
